@@ -1,0 +1,38 @@
+# FalconBridge indicators. See README.md section 2 for context and confidence levels.
+# Origin: run = seen in the VM, read = read in the files, external = third-party source (not reproduced).
+
+# --- SHA-256 ---
+e3fe8f6367af8cb29f75abd5dd54385829c0dc7555e286e74dc6b2e4889c74da  payload.bin (Go loader)           [run]
+9335165e6e20f07fcad24a6e3f3d67a6e044dd906a9c88fdfbe7328e9ebe6433  dexter.exe                        [run]
+2d16aa7e9a26c54cfba5111cb109f701b5b9fba052c74684a37fd5256ae9dee9  data\oKN_9105.Ox                  [read]
+53e4f108db5cebc7d38119721c00b1550bdce662c171a3d04c63556f1564c8d4  data\.a9L                         [read]
+55c6772848c1d1aa26d95a971f6bd36a2f593f93e8a6d46adb522080865e0b3e  data\script.rpy                   [read]
+3c29538598e4dfbd312b9ebe3cd82c1891082f1f7732171761b6b858ce45d0de  sys_config\sys_check.py           [read]
+68e89c14ff06fe2a75b343e279dae1d5ea64e6e46988fb44148eaebc3ed8d09b  sys_config\__init__.py            [read]
+
+# --- Network ---
+sigmon-zz[.]mom:443                     [run]
+POST /   (body 1035 bytes)              [run]
+User-Agent: aioppaely                   [run]
+104.21.58.80                            [external] (Cloudflare front, shared: do not block blindly)
+
+# --- Host ---
+%TEMP%\dexter.exe                       [run]
+%TEMP%\win_vecgnn.exe                   [read]  (pattern: %TEMP%\win_*.exe)
+\??\pipe\retrievablepervades            [run]
+C:\Program Files\downright\oebsosaentz.inf     [read] string in the loader; never created in our runs
+C:\Program Files\Python310\uollsuiept.pdf      [read] string in the loader; open attempt by dexter.exe, never created
+window title: yolo                      [run]
+
+# --- Strings ---
+FalconBridgeSystems/main.go             [read]
+bbe3459b1eaa00cf480c2467288aed93        [read] config key in script.rpy
+Hcq2Rwrm                                [read] XOR key of the encrypted archive
+S_S901_eb19_npd_61                      [read] config field pb_s
+
+# --- External only (public sandbox, not reproduced) ---
+mutex satirisedlimit
+%WINDIR%\TEMP\VXOLE64.DLL
+%WINDIR%\TEMP\VXSSL64.DLL
+prisnet.pdb   (also seen by us as the PDB path of the injected PE)
+imphash 550d33fa8c0b9db6fcb6e3383f652a83

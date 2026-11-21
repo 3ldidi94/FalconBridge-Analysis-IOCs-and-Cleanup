@@ -1,0 +1,11 @@
+# Never commit samples, dumps or logs from the analysis VM
+*.bin
+*.exe
+*.dll
+*.pml
+*.pcap
+*.pcapng
+*.quarantine
+dumps/
+frida.log
+__pycache__/
